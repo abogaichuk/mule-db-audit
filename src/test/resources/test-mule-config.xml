@@ -1,0 +1,19 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:databaseaudit="http://www.mulesoft.org/schema/mule/databaseaudit"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/databaseaudit http://www.mulesoft.org/schema/mule/databaseaudit/current/mule-databaseaudit.xsd">
+
+    <databaseaudit:config name="config" configId="configId">
+        <databaseaudit:connection requiredParameter="aValue" />
+    </databaseaudit:config>
+
+    <flow name="sayHiFlow">
+        <databaseaudit:say-hi person="Mariano Gonzalez"/>
+    </flow>
+
+    <flow name="retrieveInfoFlow">
+        <databaseaudit:retrieve-info config-ref="config"/>
+    </flow>
+
+</mule>

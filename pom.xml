@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.astound</groupId>
+    <artifactId>mule-db-audit</artifactId>
+    <version>0.0.4</version>
+    <packaging>mule-extension</packaging>
+    <name>DatabaseAudit Extension</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <springVersion>4.1.9.RELEASE</springVersion>
+        <springSecurityVersion>4.0.4.RELEASE</springSecurityVersion>
+        <app.runtime>4.2.1</app.runtime>
+        <mule.maven.plugin.version>3.2.7</mule.maven.plugin.version>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+    </properties>
+
+    <parent>
+        <groupId>org.mule.extensions</groupId>
+        <artifactId>mule-modules-parent</artifactId>
+        <version>1.1.3</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.mule.modules</groupId>
+            <artifactId>mule-spring-module</artifactId>
+            <version>1.3.0</version> <!-- or newer -->
+            <classifier>mule-plugin</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>4.1.1.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.6</version>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>commons-dbcp</groupId>-->
+<!--            <artifactId>commons-dbcp</artifactId>-->
+<!--            <version>1.4</version>-->
+<!--        </dependency>-->
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.mule.tools.maven</groupId>
+                <artifactId>mule-maven-plugin</artifactId>
+                <version>3.2.7</version>
+                <configuration>
+                    <sharedLibraries>
+                        <sharedLibrary>
+                            <groupId>org.springframework</groupId>
+                            <artifactId>spring-core</artifactId>
+                        </sharedLibrary>
+                        <sharedLibrary>
+                            <groupId>org.springframework</groupId>
+                            <artifactId>spring-beans</artifactId>
+                        </sharedLibrary>
+                        <sharedLibrary>
+                            <groupId>org.springframework</groupId>
+                            <artifactId>spring-context</artifactId>
+                        </sharedLibrary>
+                        <sharedLibrary>
+                            <groupId>org.springframework</groupId>
+                            <artifactId>spring-aop</artifactId>
+                        </sharedLibrary>
+                        <sharedLibrary>
+                            <groupId>org.springframework.security</groupId>
+                            <artifactId>spring-security-core</artifactId>
+                        </sharedLibrary>
+                        <sharedLibrary>
+                            <groupId>org.springframework.security</groupId>
+                            <artifactId>spring-security-config</artifactId>
+                        </sharedLibrary>
+                        <sharedLibrary>
+                            <groupId>mysql</groupId>
+                            <artifactId>mysql-connector-java</artifactId>
+                        </sharedLibrary>
+                        <sharedLibrary>
+                            <groupId>org.springframework</groupId>
+                            <artifactId>spring-jdbc</artifactId>
+                        </sharedLibrary>
+                    </sharedLibraries>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.8.2</version>
+            </plugin>
+        </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.java</include>
+                </includes>
+            </resource>
+        </resources>
+
+
+    </build>
+
+</project>
